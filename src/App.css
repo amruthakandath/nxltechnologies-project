@@ -1,0 +1,64 @@
+/* --- GLOBAL COLOR THEME: WHITE & BLUE --- */
+body, html {
+  background: #fff;
+  color: #2563eb;
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, #2563eb 0%, #60a5fa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.glass-effect {
+  backdrop-filter: blur(10px);
+  background: rgba(96, 165, 250, 0.10); /* blue-400 with opacity */
+  border: 1px solid #2563eb;
+}
+
+.float-animation {
+  animation: float 6s ease-in-out infinite;
+}
+
+.rotate-animation {
+  animation: rotate 20s linear infinite;
+}
+
+.pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes rotate {
+  from { transform: rotateY(0deg); }
+  to { transform: rotateY(360deg); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px #2563eb44; }
+  50% { box-shadow: 0 0 40px #60a5fa99; }
+}
+
+/* Utility classes for blue/white theme */
+.blue-bg {
+  background: #2563eb !important;
+  color: #fff !important;
+}
+
+.white-bg {
+  background: #fff !important;
+  color: #2563eb !important;
+}
+
+.blue-border {
+  border-color: #2563eb !important;
+}
+
+.white-border {
+  border-color: #fff !important;
+}
