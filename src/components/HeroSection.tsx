@@ -32,7 +32,7 @@ const HeroSection: React.FC = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 text-center px-6 max-w-5xl mx-auto">
+      <div className="relative z-10 text-center px-6 max-w-5xl mx-auto hero-highlight">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
@@ -64,18 +64,66 @@ const HeroSection: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 1.2 }}
           >
-            <div className="flex items-center gap-3 glass-effect px-6 py-3 rounded-full">
-              <Zap className="w-5 h-5 text-blue-400" />
+            <motion.div 
+              className="flex items-center gap-3 glass-effect px-6 py-3 rounded-full feature-card"
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.3 }}
+            >
+              <motion.div
+                animate={{ 
+                  scale: [1, 1.2, 1],
+                  rotate: [0, 5, -5, 0]
+                }}
+                transition={{ 
+                  duration: 2,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+              >
+                <Zap className="w-5 h-5 text-blue-400" />
+              </motion.div>
               <span className="text-white font-medium">Lightning Fast</span>
-            </div>
-            <div className="flex items-center gap-3 glass-effect px-6 py-3 rounded-full">
-              <Cpu className="w-5 h-5 text-purple-400" />
+            </motion.div>
+            <motion.div 
+              className="flex items-center gap-3 glass-effect px-6 py-3 rounded-full feature-card"
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.3 }}
+            >
+              <motion.div
+                animate={{ 
+                  scale: [1, 1.1, 1],
+                  y: [0, -2, 0]
+                }}
+                transition={{ 
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+              >
+                <Cpu className="w-5 h-5 text-purple-400" />
+              </motion.div>
               <span className="text-white font-medium">AI Enhanced</span>
-            </div>
-            <div className="flex items-center gap-3 glass-effect px-6 py-3 rounded-full">
-              <Sparkles className="w-5 h-5 text-blue-300" />
+            </motion.div>
+            <motion.div 
+              className="flex items-center gap-3 glass-effect px-6 py-3 rounded-full feature-card"
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.3 }}
+            >
+              <motion.div
+                animate={{ 
+                  scale: [1, 1.15, 1],
+                  rotate: [0, 10, -10, 0]
+                }}
+                transition={{ 
+                  duration: 2.5,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+              >
+                <Sparkles className="w-5 h-5 text-blue-300" />
+              </motion.div>
               <span className="text-white font-medium">Next-Gen</span>
-            </div>
+            </motion.div>
           </motion.div>
 
           <motion.button
@@ -92,12 +140,24 @@ const HeroSection: React.FC = () => {
 
         {/* Scroll indicator */}
         <motion.div
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 hero-highlight"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 2 }}
         >
-          <ChevronDown className="w-8 h-8 text-white animate-bounce" />
+          <motion.div
+            animate={{ 
+              y: [0, 10, 0],
+              scale: [1, 1.1, 1]
+            }}
+            transition={{ 
+              duration: 2,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          >
+            <ChevronDown className="w-8 h-8 text-white" />
+          </motion.div>
         </motion.div>
       </div>
     </motion.section>

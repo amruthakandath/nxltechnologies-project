@@ -78,6 +78,74 @@ const EarthWireframe: React.FC = () => {
     };
   }, []);
 
+  // Scroll-based highlight for text/cards
+  useEffect(() => {
+    const styleElementId = 'scroll-highlight-styles';
+
+    if (!document.getElementById(styleElementId)) {
+      const style = document.createElement('style');
+      style.id = styleElementId;
+      style.textContent = `
+        /* Base hidden state */
+        .highlight-base, [data-highlight], .highlight-on-scroll {
+          opacity: 0;
+          transform: translateY(16px);
+          transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.6s ease, background-color 0.6s ease, color 0.6s ease;
+          will-change: opacity, transform;
+        }
+        /* Visible state */
+        .highlight--visible {
+          opacity: 1;
+          transform: none;
+        }
+        /* Card emphasis when visible */
+        [data-highlight="card"].highlight--visible,
+        .highlight-card.highlight--visible {
+          box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+        }
+        /* Text emphasis when visible */
+        [data-highlight="text"].highlight--visible,
+        .highlight-text.highlight--visible {
+          color: inherit;
+        }
+      `;
+      document.head.appendChild(style);
+    }
+
+    const elements = Array.from(
+      document.querySelectorAll('[data-highlight], .highlight-on-scroll')
+    ) as HTMLElement[];
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const target = entry.target as HTMLElement;
+          if (entry.isIntersecting) {
+            target.classList.add('highlight--visible');
+          } else {
+            target.classList.remove('highlight--visible');
+          }
+        });
+      },
+      {
+        root: null,
+        threshold: 0.15,
+        rootMargin: '0px 0px -10% 0px',
+      }
+    );
+
+    elements.forEach((el) => {
+      if (!el.classList.contains('highlight-base')) {
+        el.classList.add('highlight-base');
+      }
+      observer.observe(el);
+    });
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
   // Fullscreen canvas (not fixed to corner anymore)
   return (
     <div
@@ -88,9 +156,9 @@ const EarthWireframe: React.FC = () => {
         left: 0,
         width: '100%',
         height: '100%',
-        zIndex: 50,
+        zIndex: 0,
         pointerEvents: 'none',
-        opacity: 0.85,
+        opacity: 0.55,
       }}
     />
   );
