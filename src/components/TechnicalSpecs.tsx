@@ -94,80 +94,64 @@ const TechnicalSpecs: React.FC = () => {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.6 }}
         >
-          <div className="text-center">
-            <div className="relative mb-6">
-              <div className="w-32 h-32 mx-auto rounded-full border-4 border-blue-500/30 flex items-center justify-center">
-                <div className="w-24 h-24 rounded-full bg-gradient-to-r from-blue-800 to-blue-500 flex items-center justify-center">
-                    <Zap className="w-12 h-12 text-white" />
-                </div>
-              </div>
-              <div className="absolute inset-0 rounded-full border-4 border-blue-400/50 animate-pulse"></div>
-            </div>
-            <h3 className="text-2xl font-bold text-white mb-2">Lightning Speed</h3>
-            <p className="text-gray-400">10x faster than previous generation</p>
-          </div>
-
-          <div className="text-center">
-            <div className="relative mb-6">
-              <div className="w-32 h-32 mx-auto rounded-full border-4 border-blue-400/30 flex items-center justify-center">
-                <motion.div 
-                  className="w-24 h-24 rounded-full bg-gradient-to-r from-blue-600 to-blue-400 flex items-center justify-center"
-                  whileHover={{ rotate: 360, scale: 1.1 }}
-                  transition={{ duration: 0.6, ease: "easeInOut" }}
-                >
-                  <motion.div
-                    animate={{ 
-                      scale: [1, 1.1, 1],
-                      y: [0, -2, 0]
-                    }}
-                    transition={{ 
-                      duration: 3,
-                      repeat: Infinity,
-                      ease: "easeInOut"
-                    }}
-                  >
-                    <Monitor className="w-12 h-12 text-white" />
-                  </motion.div>
-                </motion.div>
-              </div>
-              <div className="absolute inset-0 rounded-full border-4 border-blue-300/50 animate-pulse" style={{ animationDelay: '1s' }}></div>
-            </div>
-            <h3 className="text-2xl font-bold text-white mb-2">Crystal Clear</h3>
-            <p className="text-gray-400">Ultra-high resolution display</p>
-          </motion.div>
-
           <motion.div 
             className="text-center"
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.3 }}
           >
             <div className="relative mb-6">
-              <div className="w-32 h-32 mx-auto rounded-full border-4 border-blue-300/30 flex items-center justify-center">
+              <div className="w-32 h-32 mx-auto rounded-full border-4 border-blue-500/30 flex items-center justify-center">
                 <motion.div 
-                  className="w-24 h-24 rounded-full bg-gradient-to-r from-blue-500 to-blue-300 flex items-center justify-center"
+                  className="w-24 h-24 rounded-full bg-gradient-to-r from-blue-800 to-blue-500 flex items-center justify-center"
                   whileHover={{ rotate: 360, scale: 1.1 }}
                   transition={{ duration: 0.6, ease: "easeInOut" }}
                 >
                   <motion.div
                     animate={{ 
-                      scale: [1, 1.15, 1],
-                      rotate: [0, 10, -10, 0]
+                      scale: [1, 1.2, 1],
+                      rotate: [0, 5, -5, 0]
                     }}
                     transition={{ 
-                      duration: 2.5,
+                      duration: 2,
                       repeat: Infinity,
                       ease: "easeInOut"
                     }}
                   >
-                    <Bluetooth className="w-12 h-12 text-white" />
+                    <Zap className="w-12 h-12 text-white" />
                   </motion.div>
                 </motion.div>
+              </div>
+              <div className="absolute inset-0 rounded-full border-4 border-blue-400/50 animate-pulse"></div>
+            </div>
+            <h3 className="text-2xl font-bold text-white mb-2">Lightning Speed</h3>
+            <p className="text-gray-400">10x faster than previous generation</p>
+          </motion.div>
+
+          <div className="text-center">
+            <div className="relative mb-6">
+              <div className="w-32 h-32 mx-auto rounded-full border-4 border-blue-400/30 flex items-center justify-center">
+                <div className="w-24 h-24 rounded-full bg-gradient-to-r from-blue-600 to-blue-400 flex items-center justify-center">
+                  <Monitor className="w-12 h-12 text-white" />
+                </div>
+              </div>
+              <div className="absolute inset-0 rounded-full border-4 border-blue-300/50 animate-pulse" style={{ animationDelay: '1s' }}></div>
+            </div>
+            <h3 className="text-2xl font-bold text-white mb-2">Crystal Clear</h3>
+            <p className="text-gray-400">Ultra-high resolution display</p>
+          </div>
+
+          <div className="text-center">
+            <div className="relative mb-6">
+              <div className="w-32 h-32 mx-auto rounded-full border-4 border-blue-300/30 flex items-center justify-center">
+                <div className="w-24 h-24 rounded-full bg-gradient-to-r from-blue-500 to-blue-300 flex items-center justify-center">
+                  <Bluetooth className="w-12 h-12 text-white" />
+                </div>
               </div>
               <div className="absolute inset-0 rounded-full border-4 border-blue-200/50 animate-pulse" style={{ animationDelay: '2s' }}></div>
             </div>
             <h3 className="text-2xl font-bold text-white mb-2">Always Connected</h3>
             <p className="text-gray-400">Seamless multi-device sync</p>
-          </motion.div>
+          </div>
         </motion.div>
       </div>
     </section>

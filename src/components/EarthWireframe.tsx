@@ -27,7 +27,7 @@ const EarthWireframe: React.FC = () => {
     // Earth wireframe
     const geometry = new THREE.SphereGeometry(1, 32, 32);
     const material = new THREE.MeshBasicMaterial({
-      color: 0x2563eb,
+      color: 0x0E758F,
       wireframe: true,
       opacity: 0.7,
       transparent: true,
