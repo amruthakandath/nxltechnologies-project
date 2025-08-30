@@ -96,62 +96,119 @@ const TechnicalSpecs: React.FC = () => {
         >
           <motion.div 
             className="text-center"
-            whileHover={{ scale: 1.05 }}
-            transition={{ duration: 0.3 }}
+            whileHover={{ scale: 1.05, y: -10 }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
           >
-            <div className="relative mb-6">
-              <div className="w-32 h-32 mx-auto rounded-full border-4 border-blue-500/30 flex items-center justify-center">
-                <motion.div 
-                  className="w-24 h-24 rounded-full bg-gradient-to-r from-blue-800 to-blue-500 flex items-center justify-center"
-                  whileHover={{ rotate: 360, scale: 1.1 }}
-                  transition={{ duration: 0.6, ease: "easeInOut" }}
+            <div className="relative mb-6 flex justify-center">
+              <div className="relative w-24 h-24 flex items-center justify-center">
+                {/* Subtle outer ring */}
+                <motion.div
+                  className="absolute inset-0 rounded-full border-2 border-blue-400/40"
+                  animate={{
+                    scale: [1, 1.1, 1],
+                    opacity: [0.4, 0.6, 0.4]
+                  }}
+                  transition={{
+                    duration: 3,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
+                />
+                
+                {/* Main circle container */}
+                <motion.div
+                  className="w-20 h-20 bg-blue-600 rounded-full flex items-center justify-center relative"
+                  whileHover={{
+                    scale: 1.1,
+                    boxShadow: "0 10px 25px rgba(59, 130, 246, 0.3)"
+                  }}
+                  transition={{ duration: 0.3, ease: "easeOut" }}
                 >
-                  <motion.div
-                    animate={{ 
-                      scale: [1, 1.2, 1],
-                      rotate: [0, 5, -5, 0]
-                    }}
-                    transition={{ 
-                      duration: 2,
-                      repeat: Infinity,
-                      ease: "easeInOut"
-                    }}
-                  >
-                    <Zap className="w-12 h-12 text-white" />
-                  </motion.div>
+                  <Zap className="w-10 h-10 text-white" />
                 </motion.div>
               </div>
-              <div className="absolute inset-0 rounded-full border-4 border-blue-400/50 animate-pulse"></div>
             </div>
             <h3 className="text-2xl font-bold text-white mb-2">Lightning Speed</h3>
             <p className="text-gray-400">10x faster than previous generation</p>
           </motion.div>
 
-          <div className="text-center">
-            <div className="relative mb-6">
-              <div className="w-32 h-32 mx-auto rounded-full border-4 border-blue-400/30 flex items-center justify-center">
-                <div className="w-24 h-24 rounded-full bg-gradient-to-r from-blue-600 to-blue-400 flex items-center justify-center">
-                  <Monitor className="w-12 h-12 text-white" />
-                </div>
+          <motion.div 
+            className="text-center"
+            whileHover={{ scale: 1.05, y: -10 }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
+          >
+            <div className="relative mb-6 flex justify-center">
+              <div className="relative w-24 h-24 flex items-center justify-center">
+                {/* Subtle outer ring */}
+                <motion.div
+                  className="absolute inset-0 rounded-full border-2 border-blue-400/40"
+                  animate={{
+                    scale: [1, 1.1, 1],
+                    opacity: [0.4, 0.6, 0.4]
+                  }}
+                  transition={{
+                    duration: 3,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    delay: 0.2
+                  }}
+                />
+                
+                {/* Main circle container */}
+                <motion.div
+                  className="w-20 h-20 bg-blue-600 rounded-full flex items-center justify-center relative"
+                  whileHover={{
+                    scale: 1.1,
+                    boxShadow: "0 10px 25px rgba(59, 130, 246, 0.3)"
+                  }}
+                  transition={{ duration: 0.3, ease: "easeOut" }}
+                >
+                  <Monitor className="w-10 h-10 text-white" />
+                </motion.div>
               </div>
-              <div className="absolute inset-0 rounded-full border-4 border-blue-300/50 animate-pulse" style={{ animationDelay: '1s' }}></div>
             </div>
             <h3 className="text-2xl font-bold text-white mb-2">Crystal Clear</h3>
             <p className="text-gray-400">Ultra-high resolution display</p>
-          </div>
+          </motion.div>
 
-          <div className="text-center">
-            <div className="relative mb-6">
-              <div className="w-32 h-32 mx-auto rounded-full border-4 border-blue-300/30 flex items-center justify-center">
-                <div className="w-24 h-24 rounded-full bg-gradient-to-r from-blue-500 to-blue-300 flex items-center justify-center">
-                  <Bluetooth className="w-12 h-12 text-white" />
-                </div>
+          <motion.div 
+            className="text-center"
+            whileHover={{ scale: 1.05, y: -10 }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
+          >
+            <div className="relative mb-6 flex justify-center">
+              <div className="relative w-24 h-24 flex items-center justify-center">
+                {/* Subtle outer ring */}
+                <motion.div
+                  className="absolute inset-0 rounded-full border-2 border-blue-400/40"
+                  animate={{
+                    scale: [1, 1.1, 1],
+                    opacity: [0.4, 0.6, 0.4]
+                  }}
+                  transition={{
+                    duration: 3,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    delay: 0.4
+                  }}
+                />
+                
+                {/* Main circle container */}
+                <motion.div
+                  className="w-20 h-20 bg-blue-600 rounded-full flex items-center justify-center relative"
+                  whileHover={{
+                    scale: 1.1,
+                    boxShadow: "0 10px 25px rgba(59, 130, 246, 0.3)"
+                  }}
+                  transition={{ duration: 0.3, ease: "easeOut" }}
+                >
+                  <Bluetooth className="w-10 h-10 text-white" />
+                </motion.div>
               </div>
-              <div className="absolute inset-0 rounded-full border-4 border-blue-200/50 animate-pulse" style={{ animationDelay: '2s' }}></div>
             </div>
             <h3 className="text-2xl font-bold text-white mb-2">Always Connected</h3>
             <p className="text-gray-400">Seamless multi-device sync</p>
-          </div>
+          </motion.div>
         </motion.div>
       </div>
     </section>
@@ -161,28 +218,60 @@ const TechnicalSpecs: React.FC = () => {
 const SpecCard: React.FC<{ spec: any; index: number; inView: boolean }> = ({ spec, index, inView }) => {
   return (
     <motion.div
-      className="glass-effect p-6 rounded-xl hover:bg-white/10 transition-all duration-300 group"
-      initial={{ opacity: 0, y: 50 }}
-      animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.6, delay: index * 0.1 }}
-      whileHover={{ scale: 1.02, y: -5 }}
+      className="glass-effect p-6 rounded-xl hover:bg-white/10 transition-all duration-300 group relative overflow-hidden"
+      initial={{ opacity: 0, y: 50, rotateX: -15 }}
+      animate={inView ? { opacity: 1, y: 0, rotateX: 0 } : {}}
+      transition={{ duration: 0.8, delay: index * 0.1, ease: "easeOut" }}
+      whileHover={{ 
+        scale: 1.03, 
+        y: -8,
+        rotateY: 5,
+        boxShadow: "0 25px 50px rgba(0, 0, 0, 0.3)"
+      }}
     >
-      <div className="flex items-center gap-3 mb-6">
-        <motion.div 
-          className="w-12 h-12 bg-gradient-to-r from-blue-800 to-blue-500 rounded-lg flex items-center justify-center relative overflow-hidden group-hover:scale-110 transition-transform duration-300"
-          whileHover={{ rotate: 360 }}
-          transition={{ duration: 0.6, ease: "easeInOut" }}
-        >
-          <motion.div
-            className="absolute inset-0 bg-gradient-to-r from-blue-400 to-blue-300 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-            style={{ borderRadius: 'inherit' }}
-          />
-          <spec.icon 
-            className="w-6 h-6 text-white relative z-10 group-hover:scale-110 transition-transform duration-300" 
-          />
-        </motion.div>
-        <h3 className="text-lg font-semibold text-white">{spec.category}</h3>
-      </div>
+              <div className="flex items-center gap-3 mb-6">
+          <motion.div 
+            className="w-12 h-12 bg-gradient-to-r from-blue-800 to-blue-500 rounded-lg flex items-center justify-center relative overflow-hidden group-hover:scale-110 transition-transform duration-300"
+            whileHover={{ 
+              rotate: [0, 15, -15, 0],
+              scale: 1.2,
+              boxShadow: "0 10px 25px rgba(59, 130, 246, 0.4)"
+            }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
+            {/* Animated background glow */}
+            <motion.div
+              className="absolute inset-0 bg-gradient-to-r from-blue-400 to-blue-300 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              style={{ borderRadius: 'inherit' }}
+            />
+            
+            {/* Floating sparkle effect */}
+            <motion.div
+              className="absolute top-1 right-1 w-1 h-1 bg-white rounded-full opacity-0 group-hover:opacity-100"
+              animate={{ 
+                scale: [0, 1, 0],
+                opacity: [0, 1, 0]
+              }}
+              transition={{ 
+                duration: 1.5,
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay: index * 0.2
+              }}
+            />
+            
+            <spec.icon 
+              className="w-6 h-6 text-white relative z-10 group-hover:scale-110 transition-transform duration-300 drop-shadow-sm" 
+            />
+          </motion.div>
+          <motion.h3 
+            className="text-lg font-semibold text-white"
+            whileHover={{ x: 5 }}
+            transition={{ duration: 0.3 }}
+          >
+            {spec.category}
+          </motion.h3>
+        </div>
 
       <div className="space-y-4">
         {spec.items.map((item: any, itemIndex: number) => (

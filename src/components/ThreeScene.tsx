@@ -1,7 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import * as THREE from 'three';
 import { createWifiSymbol, createMsgSymbol } from './ThreeSymbols';
-import EarthWireframe from './EarthWireframe';
 
 // --- 3D SCENE CONSTANTS ---
 const NUM_FLOATING_SYMBOLS = 8;

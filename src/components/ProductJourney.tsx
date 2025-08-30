@@ -32,7 +32,7 @@ const journeySteps = [
 
 const ProductJourney: React.FC = () => {
   return (
-    <section className="py-20 px-6 relative overflow-hidden">
+    <section id="product-journey" className="py-20 px-6 relative overflow-hidden">
       {/* Background elements */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-10 right-10 w-32 h-32 border border-blue-500/20 rounded-full rotate-animation"></div>

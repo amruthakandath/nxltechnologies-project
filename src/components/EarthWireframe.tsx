@@ -4,6 +4,8 @@ import * as THREE from 'three';
 const EarthWireframe: React.FC = () => {
   const mountRef = useRef<HTMLDivElement>(null);
   const frameRef = useRef<number>();
+  const earthRef = useRef<THREE.Mesh>();
+  const materialRef = useRef<THREE.MeshBasicMaterial>();
 
   useEffect(() => {
     if (!mountRef.current) return;
@@ -27,13 +29,61 @@ const EarthWireframe: React.FC = () => {
     // Earth wireframe
     const geometry = new THREE.SphereGeometry(1, 32, 32);
     const material = new THREE.MeshBasicMaterial({
-      color: 0x0E758F,
+      color: 0x3B82F6, // Blue color
       wireframe: true,
-      opacity: 0.7,
+      opacity: 0.3,
       transparent: true,
     });
+    materialRef.current = material;
+    
     const earth = new THREE.Mesh(geometry, material);
+    earthRef.current = earth;
     scene.add(earth);
+
+    // Function to check collision with cards
+    const checkCollisionWithCards = () => {
+      const cards = document.querySelectorAll('.glass-effect');
+      const earthScreenPos = getEarthScreenPosition();
+      
+      let isColliding = false;
+      
+      cards.forEach((card) => {
+        const rect = card.getBoundingClientRect();
+        const cardCenterX = rect.left + rect.width / 2;
+        const cardCenterY = rect.top + rect.height / 2;
+        
+        // Calculate distance between earth and card center
+        const distance = Math.sqrt(
+          Math.pow(earthScreenPos.x - cardCenterX, 2) + 
+          Math.pow(earthScreenPos.y - cardCenterY, 2)
+        );
+        
+        // Collision threshold (earth radius + card size)
+        const threshold = 100 + Math.max(rect.width, rect.height) / 2;
+        
+        if (distance < threshold) {
+          isColliding = true;
+        }
+      });
+      
+      return isColliding;
+    };
+
+    // Function to get earth screen position
+    const getEarthScreenPosition = () => {
+      const progress = getScrollProgress();
+      const earthX = (progress - 0.5) * 10;
+      const earthY = Math.sin(progress * Math.PI * 2) * 2;
+      
+      // Convert 3D position to screen coordinates
+      const vector = new THREE.Vector3(earthX, earthY, 0);
+      vector.project(camera);
+      
+      return {
+        x: (vector.x * 0.5 + 0.5) * window.innerWidth,
+        y: (vector.y * -0.5 + 0.5) * window.innerHeight
+      };
+    };
 
     // Track scroll progress (0 → 1)
     const getScrollProgress = () => {
@@ -55,6 +105,16 @@ const EarthWireframe: React.FC = () => {
       // Slow rotation
       earth.rotation.y += 0.004;
       earth.rotation.x += 0.001;
+
+      // Check collision and change color
+      const isColliding = checkCollisionWithCards();
+      if (materialRef.current) {
+        if (isColliding) {
+          materialRef.current.color.setHex(0xFFFFFF); // White when colliding
+        } else {
+          materialRef.current.color.setHex(0x3B82F6); // Blue when not colliding
+        }
+      }
 
       renderer.render(scene, camera);
     };

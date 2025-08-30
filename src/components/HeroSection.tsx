@@ -1,6 +1,6 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { ChevronDown, Zap, Cpu, Sparkles } from 'lucide-react';
+import { Zap, Cpu, Sparkles } from 'lucide-react';
 import ThreeScene from './ThreeScene';
 
 const HeroSection: React.FC = () => {
@@ -133,6 +133,15 @@ const HeroSection: React.FC = () => {
             transition={{ duration: 1, delay: 1.5 }}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
+            onClick={() => {
+              const productJourneySection = document.getElementById('product-journey');
+              if (productJourneySection) {
+                productJourneySection.scrollIntoView({ 
+                  behavior: 'smooth',
+                  block: 'start'
+                });
+              }
+            }}
           >
             Discover More
           </motion.button>
@@ -156,7 +165,7 @@ const HeroSection: React.FC = () => {
               ease: "easeInOut"
             }}
           >
-            <ChevronDown className="w-8 h-8 text-white" />
+           
           </motion.div>
         </motion.div>
       </div>

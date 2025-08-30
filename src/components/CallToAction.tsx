@@ -101,7 +101,7 @@ const CallToAction: React.FC = () => {
               <div className="text-4xl font-bold gradient-text mb-4">$899</div>
               <p className="text-gray-400">Perfect for getting started</p>
             </div>
-            <ul className="space-y-3 mb-8">
+            <ul className="space-y-3 mb-8 h-100">
               <li className="flex items-center gap-3 text-gray-300">
                 <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
                 16GB RAM, 512GB Storage
@@ -114,7 +114,14 @@ const CallToAction: React.FC = () => {
                 <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
                 1 Year Warranty
               </li>
+              <li className="flex items-center gap-3 text-gray-300">
+                <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                Fast charging
+              </li>
             </ul>
+            
+
+
             <button className="w-full border border-blue-500 text-blue-400 py-3 rounded-full hover:bg-blue-500 hover:text-white transition-all duration-300">
               Choose Essential
             </button>
